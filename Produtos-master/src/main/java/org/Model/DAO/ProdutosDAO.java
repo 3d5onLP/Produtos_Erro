@@ -1,8 +1,7 @@
-package org.Produtos.Model;
-
+package org.Model.DAO;
 import java.util.List;
 
-import org.Produtos.Produto;
+import org.Model.DTO.Produto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,12 +12,12 @@ import static org.hibernate.cfg.JdbcSettings.SHOW_SQL;
 import static org.hibernate.cfg.JdbcSettings.URL;
 import static org.hibernate.cfg.JdbcSettings.USER;
 
-public class DAO {
+public class ProdutosDAO {
 
     // Cria a conexão com o banco de dados usando Hibernate
     private SessionFactory configuration = new Configuration()
             .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect")
-            .addAnnotatedClass(Produto.class) // Produto
+            .addAnnotatedClass(Produto.class) // Produto é uma entidade mapeada
             .setProperty(URL, "jdbc:mysql://localhost:3306/banco_produtos")
             .setProperty(USER, "root")
             .setProperty(PASS, "")

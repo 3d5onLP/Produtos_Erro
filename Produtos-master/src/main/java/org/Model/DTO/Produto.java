@@ -1,4 +1,4 @@
-package org.Produtos;
+package org.Model.DTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
