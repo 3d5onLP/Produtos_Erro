@@ -1,7 +1,7 @@
 package org.Produtos.Control;
 import org.Produtos.Model.DTO;
 import org.Produtos.Model.DAO;
-import org.Produtos.View;
+import org.Produtos.View.View;
 
 
 import java.awt.BorderLayout;

@@ -1,6 +1,14 @@
 package org.Produtos.Model;
 
-import jakarta.persistence.*;
+import org.Produtos.Model.DAO;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "produtos")
@@ -30,11 +38,11 @@ public class DTO {
     private String imagem;
 
     // Construtor sem parâmetros
-    public Produto() {
+    public DTO() {
     }
 
     // Construtor com parâmetros, agora incluindo categoria, descrição e imagem
-    public Produto(String nome, double preco, int quantidade, String categoria, String descricao, String imagem) {
+    public DTO(String nome, double preco, int quantidade, String categoria, String descricao, String imagem) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -44,7 +52,7 @@ public class DTO {
     }
 
     // Construtor com parâmetros incluindo 'id'
-    public Produto(Integer id, String nome, double preco, int quantidade, String categoria, String descricao,
+    public DTO(Integer id, String nome, double preco, int quantidade, String categoria, String descricao,
                    String imagem) {
         this.id = id;
         this.nome = nome;
@@ -114,7 +122,7 @@ public class DTO {
     // Sobrescrita do método toString() para incluir os novos campos
     @Override
     public String toString() {
-        return "Produto{" +
+        return "DTO{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", preco=" + String.format("%.2f", preco) +
