@@ -11,20 +11,27 @@ import jakarta.persistence.Table;
 
 // Anotação @Entity indica que esta classe é uma entidade JPA, ou seja, será mapeada para uma tabela no banco de dados
 @Entity
+// Anotação @Table especifica o nome da tabela no banco de dados. Neste caso, a tabela se chama "produtos"
 @Table(name = "produtos")
 public class ProdutosDTO {
 
+    // Anotação @Id indica que o campo 'id' é a chave primária da tabela
     @Id
+    // Anotação @GeneratedValue especifica que o valor do campo 'id' será gerado automaticamente pelo banco de dados (auto-incremento)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Anotação @Column especifica o nome da coluna no banco de dados. Neste caso, a coluna se chama "id"
     @Column(name = "id")
-    private Integer id;
+    private Integer id; // Campo que armazena o ID do produto
 
+    // Anotação @Column para o campo 'nome', que será mapeado para a coluna "nome" no banco de dados
     @Column(name = "nome")
-    private String nome;
+    private String nome; // Campo que armazena o nome do produto
 
+    // Anotação @Column para o campo 'preco', que será mapeado para a coluna "preco" no banco de dados
     @Column(name = "preco")
-    private Double preco;
+    private Double preco; // Campo que armazena o preço do produto
 
+    // Anotação @Column para o campo 'quantidade', que será mapeado para a coluna "quantidade" no banco de dados
     @Column(name = "quantidade")
     private int quantidade; // Campo que armazena a quantidade do produto em estoque
 
