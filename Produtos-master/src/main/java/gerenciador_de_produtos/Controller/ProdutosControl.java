@@ -1,4 +1,4 @@
-package org.Controller;
+package gerenciador_de_produtos.Controller;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -15,28 +15,28 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import org.Model.DAO.ProdutosDAO;
-import org.Model.DTO.Produto;
-import org.View.IndexGUI;
+import gerenciador_de_produtos.Model.DAO.ProdutosDAO;
+import gerenciador_de_produtos.Model.DTO.ProdutosDTO;
+import gerenciador_de_produtos.View.ProdutosView;
 
-public class GerenciadorEstoqueGUI {
-    private IndexGUI indexGUI;
+public class ProdutosControl {
+    private ProdutosView indexGUI;
     private ProdutosDAO produtosDAO;
 
-    public GerenciadorEstoqueGUI(IndexGUI indexGUI) {
+    public ProdutosControl(ProdutosView indexGUI) {
         this.indexGUI = indexGUI;
         this.produtosDAO = new ProdutosDAO(); // Inicializa o DAO
     }
 
     public void listarProdutos() {
-        List<Produto> produtos = produtosDAO.listAllProdutos(); // Busca produtos do banco
+        List<ProdutosDTO> produtos = produtosDAO.listAllProdutos(); // Busca produtos do banco
         DefaultTableModel model = (DefaultTableModel) indexGUI.getTable().getModel();
         model.setRowCount(0); // Limpa as linhas atuais da tabela
 
         if (produtos.isEmpty()) {
             JOptionPane.showMessageDialog(indexGUI, "Nenhum produto cadastrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
         } else {
-            for (Produto produto : produtos) {
+            for (ProdutosDTO produto : produtos) {
                 model.addRow(new Object[] {
                         produto.getId(),
                         produto.getNome(),
@@ -100,7 +100,7 @@ public class GerenciadorEstoqueGUI {
                 String categoria = categoriaField.getText();
                 String imagem = imagemUrlField.getText().trim().isEmpty() ? null : imagemUrlField.getText().trim();
 
-                Produto produto = new Produto(nome, preco, quantidade, categoria, descricao, imagem);
+                ProdutosDTO produto = new ProdutosDTO(nome, preco, quantidade, categoria, descricao, imagem);
                 produtosDAO.addProduto(produto); // Adiciona o produto no banco
                 indexGUI.getOutputArea().setText("Produto adicionado: " + produto);
 
@@ -130,9 +130,9 @@ public class GerenciadorEstoqueGUI {
                 indexGUI.getOutputArea().setText("Produto removido com ID: " + id);
                 listarProdutos(); // Atualiza a tabela
             } catch (NumberFormatException ex) {
-                List<Produto> produtos = produtosDAO.searchProdutoByName(input.trim());
+                List<ProdutosDTO> produtos = produtosDAO.searchProdutoByName(input.trim());
                 if (!produtos.isEmpty()) {
-                    Produto produto = produtos.get(0);
+                    ProdutosDTO produto = produtos.get(0);
                     produtosDAO.deleteProduto(produto.getId()); // Remove o produto do banco
                     indexGUI.getOutputArea().setText("Produto removido: " + produto.getNome());
                     listarProdutos(); // Atualiza a tabela
@@ -155,7 +155,7 @@ public class GerenciadorEstoqueGUI {
         if (input != null && !input.trim().isEmpty()) {
             try {
                 int id = Integer.parseInt(input.trim());
-                Produto produto = produtosDAO.getProduto(id); // Busca o produto no banco
+                ProdutosDTO produto = produtosDAO.getProduto(id); // Busca o produto no banco
 
                 if (produto != null) {
                     JDialog editDialog = new JDialog(indexGUI, "Editar Produto", true);
@@ -213,7 +213,8 @@ public class GerenciadorEstoqueGUI {
                             JOptionPane.showMessageDialog(editDialog, "Produto atualizado com sucesso!");
                             editDialog.dispose();
                         } catch (NumberFormatException ex) {
-                            JOptionPane.showMessageDialog(editDialog, "Erro: Preço e quantidade devem ser números válidos.");
+                            JOptionPane.showMessageDialog(editDialog,
+                                    "Erro: Preço e quantidade devem ser números válidos.");
                         }
                     });
                     editDialog.add(salvarButton);
@@ -221,15 +222,17 @@ public class GerenciadorEstoqueGUI {
                     editDialog.setLocationRelativeTo(null);
                     editDialog.setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado com o ID: " + id, "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado com o ID: " + id, "Erro",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             } catch (NumberFormatException ex) {
-                List<Produto> produtos = produtosDAO.searchProdutoByName(input.trim());
+                List<ProdutosDTO> produtos = produtosDAO.searchProdutoByName(input.trim());
                 if (!produtos.isEmpty()) {
-                    Produto produto = produtos.get(0);
+                    ProdutosDTO produto = produtos.get(0);
                     // Abrir diálogo de edição para o produto encontrado
                 } else {
-                    JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado.", "Erro",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -237,21 +240,23 @@ public class GerenciadorEstoqueGUI {
 
     public void buscarProdutoPorNome(String nomeBusca) {
         if (!nomeBusca.isEmpty()) {
-            List<Produto> produtos = produtosDAO.searchProdutoByName(nomeBusca); // Busca produtos no banco
+            List<ProdutosDTO> produtos = produtosDAO.searchProdutoByName(nomeBusca); // Busca produtos no banco
             if (produtos.isEmpty()) {
-                JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado.", "Busca", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(indexGUI, "Produto não encontrado.", "Busca",
+                        JOptionPane.INFORMATION_MESSAGE);
             } else {
                 // Exibe os resultados em uma nova janela
                 SearchResultDialog dialog = new SearchResultDialog(produtos);
                 dialog.setVisible(true);
             }
         } else {
-            JOptionPane.showMessageDialog(indexGUI, "Por favor, insira um nome para buscar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(indexGUI, "Por favor, insira um nome para buscar.", "Aviso",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
     private class SearchResultDialog extends JDialog {
-        public SearchResultDialog(List<Produto> produtos) {
+        public SearchResultDialog(List<ProdutosDTO> produtos) {
             setTitle("Resultados da Busca");
             setSize(400, 300);
             setLocationRelativeTo(null);
@@ -260,8 +265,9 @@ public class GerenciadorEstoqueGUI {
             DefaultTableModel model = new DefaultTableModel(columns, 0);
             JTable resultTable = new JTable(model);
 
-            for (Produto produto : produtos) {
-                model.addRow(new Object[] { produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade() });
+            for (ProdutosDTO produto : produtos) {
+                model.addRow(new Object[] { produto.getId(), produto.getNome(), produto.getPreco(),
+                        produto.getQuantidade() });
             }
 
             add(new JScrollPane(resultTable), BorderLayout.CENTER);

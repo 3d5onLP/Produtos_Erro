@@ -22,7 +22,7 @@ Este projeto foi desenvolvido para demonstrar uma implementação simples de um 
 
 ### 👑 Membro 3
 ![Foto do Membro 3](https://avatars.githubusercontent.com/u/116564293?v=4)
-**Klaven Castro**  
+**Edson Lopes**  
 🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
 🛠️ Função: Desenvolvedor Front-Back-end.  
 - GitHub: [3d5onLP](https://github.com/3d5onLP)
@@ -40,18 +40,18 @@ Gerenciador_Produtos/
 │-- src/
 │   │-- main/
 │   │   │-- java/
-│   │   │   │-- org/
-│   │   │   │   │-- model/           # Contém as classes de modelo (Entidades)
-|   │   │   |   |    │-- dao/        # Contém as classes de acesso a dados e manipulação do banco de dados
-│   │   │   │   │     │-- dto/       # Contém as classes de acesso a dados comum
-│   │   │   │   │-- controller/      # Contém as classes responsáveis pela lógica do sistema
-│   │   │   │   │-- view/            # Contém as classes responsáveis pela interface do usuário
-│   │   │   │   |-- App/Main.java    # Classe principal para executar a aplicação
-│   |   |   │-- resources/           # Contém arquivos de configuração
-|   |   |   |   |--META-INF               # Armazenar metadados de configuração
-|   |   |   |   |  |-- persistence.xml    # Configura a conexão com o banco de dados (driver, URL, usuário e senha)
-│   │   |   │-- hibernate.cfg.xml         # Configuração do Hibernate
-│-- README.md                             # Documentação do projeto
+│   │   │   │-- gerenciador_de_produtos/
+│   │   │   │   │-- model/                 # Contém as classes de modelo (Entidades)
+|   │   │   |   |    │-- dao/              # Contém as classes de acesso a dados e manipulação do banco de dados
+│   │   │   │   │     │-- dto/             # Contém as classes de acesso a dados comum
+│   │   │   │   │-- controller/            # Contém as classes responsáveis pela lógica do sistema
+│   │   │   │   │-- view/                  # Contém as classes responsáveis pela interface do usuário
+│   │   │   │   |-- App/Main.java          # Classe principal para executar a aplicação
+│   |   |   │-- resources/                 # Contém arquivos de configuração
+|   |   |   |   |--META-INF                # Armazenar metadados de configuração
+|   |   |   |   |  |-- persistence.xml     # Configura a conexão com o banco de dados (driver, URL, usuário e senha)
+│   │   |   │-- hibernate.cfg.xml          # Configuração do Hibernate
+│-- README.md                              # Documentação do projeto
 ```
 
 ## Funcionalidades

@@ -1,4 +1,4 @@
-package org.Model.DTO;
+package gerenciador_de_produtos.Model.DTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "produtos")
-public class Produto {
+public class ProdutosDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +35,11 @@ public class Produto {
     private String imagem;
 
     // Construtor sem parâmetros
-    public Produto() {
+    public ProdutosDTO() {
     }
 
     // Construtor com parâmetros, agora incluindo categoria, descrição e imagem
-    public Produto(String nome, double preco, int quantidade, String categoria, String descricao, String imagem) {
+    public ProdutosDTO(String nome, double preco, int quantidade, String categoria, String descricao, String imagem) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -49,7 +49,7 @@ public class Produto {
     }
 
     // Construtor com parâmetros incluindo 'id'
-    public Produto(Integer id, String nome, double preco, int quantidade, String categoria, String descricao,
+    public ProdutosDTO(Integer id, String nome, double preco, int quantidade, String categoria, String descricao,
             String imagem) {
         this.id = id;
         this.nome = nome;

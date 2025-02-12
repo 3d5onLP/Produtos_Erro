@@ -1,4 +1,4 @@
-package org.View;
+package gerenciador_de_produtos.View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,26 +25,26 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-import org.Controller.GerenciadorEstoqueGUI;
+import gerenciador_de_produtos.Controller.ProdutosControl;
 
-public class IndexGUI extends JFrame {
-    private GerenciadorEstoqueGUI gerenciadorGUI;
+public class ProdutosView extends JFrame {
+    private ProdutosControl gerenciadorGUI;
     private JTextField searchField;
     private JTable table;
     private JLabel imagePreviewLabel = new JLabel(); // Label para exibir a imagem
     private String imagemCaminho = "";
     private JTextArea outputArea;
 
-
     public JTextArea getOutputArea() {
         return outputArea;
     }
+
     public JTable getTable() {
         return table;
     }
 
-    public IndexGUI() {
-        gerenciadorGUI = new GerenciadorEstoqueGUI(this);
+    public ProdutosView() {
+        gerenciadorGUI = new ProdutosControl(this);
         outputArea = new JTextArea();
         // Configuração da janela
         setTitle("Gerenciador de Estoque");
@@ -114,7 +114,8 @@ public class IndexGUI extends JFrame {
                     ImageIcon imageIcon = new ImageIcon(imagePath);
                     int width = 80; // Tamanho ajustável para exibição na tabela
                     int height = 80;
-                    imageIcon = new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH));
+                    imageIcon = new ImageIcon(
+                            imageIcon.getImage().getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH));
                     setIcon(imageIcon);
                 } else {
                     setIcon(null);
@@ -226,7 +227,7 @@ public class IndexGUI extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            IndexGUI gui = new IndexGUI();
+            ProdutosView gui = new ProdutosView();
             gui.setVisible(true);
         });
     }
