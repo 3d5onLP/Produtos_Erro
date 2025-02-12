@@ -97,7 +97,7 @@ public class ProdutosDAO {
             // Inicia a transação
             session.beginTransaction();
             // Consulta todos os produtos no banco de dados
-            List<ProdutosDTO> produtos = session.createQuery("FROM Produtos", ProdutosDTO.class).getResultList();
+            List<ProdutosDTO> produtos = session.createQuery("FROM ProdutosDTO", ProdutosDTO.class).getResultList();
             // Comita a transação
             session.getTransaction().commit();
             return produtos;
@@ -111,7 +111,7 @@ public class ProdutosDAO {
             // Inicia a transação
             session.beginTransaction();
             // Consulta produtos cujo nome contenha o termo fornecido
-            List<ProdutosDTO> produtos = session.createQuery("FROM Produtos WHERE nome LIKE :nome", ProdutosDTO.class)
+            List<ProdutosDTO> produtos = session.createQuery("FROM ProdutosDTO WHERE nome LIKE :nome", ProdutosDTO.class)
                     .setParameter("nome", "%" + nome + "%")
                     .getResultList();
             // Comita a transação
