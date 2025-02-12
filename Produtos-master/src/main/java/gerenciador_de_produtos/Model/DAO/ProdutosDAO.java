@@ -1,7 +1,7 @@
-package org.Model.DAO;
+package gerenciador_de_produtos.Model.DAO;
+
 import java.util.List;
 
-import org.Model.DTO.Produto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,12 +12,14 @@ import static org.hibernate.cfg.JdbcSettings.SHOW_SQL;
 import static org.hibernate.cfg.JdbcSettings.URL;
 import static org.hibernate.cfg.JdbcSettings.USER;
 
+import gerenciador_de_produtos.Model.DTO.ProdutosDTO;
+
 public class ProdutosDAO {
 
     // Cria a conexão com o banco de dados usando Hibernate
     private SessionFactory configuration = new Configuration()
             .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect")
-            .addAnnotatedClass(Produto.class) // Produto é uma entidade mapeada
+            .addAnnotatedClass(ProdutosDTO.class) // Produto é uma entidade mapeada
             .setProperty(URL, "jdbc:mysql://localhost:3306/banco_produtos")
             .setProperty(USER, "root")
             .setProperty(PASS, "")
@@ -27,9 +29,8 @@ public class ProdutosDAO {
             .setProperty(HIGHLIGHT_SQL, true)
             .buildSessionFactory();
 
-
     // Método para adicionar um produto no banco de dados
-    public void addProduto(Produto produto) {
+    public void addProduto(ProdutosDTO produto) {
         // Abre uma nova sessão com o banco de dados
         try (Session session = configuration.openSession()) {
             // Inicia a transação
@@ -48,7 +49,7 @@ public class ProdutosDAO {
             // Inicia a transação
             session.beginTransaction();
             // Busca o produto com o ID fornecido
-            Produto produto = session.get(Produto.class, id);
+            ProdutosDTO produto = session.get(ProdutosDTO.class, id);
             // Se o produto existir, realiza a exclusão
             if (produto != null) {
                 session.delete(produto);
@@ -59,22 +60,22 @@ public class ProdutosDAO {
     }
 
     // Método para obter um produto pelo seu ID
-    public Produto getProduto(Integer id) {
+    public ProdutosDTO getProduto(Integer id) {
         // Abre uma nova sessão com o banco de dados
         try (Session session = configuration.openSession()) {
             // Retorna o produto com o ID fornecido, se existir
-            return session.get(Produto.class, id);
+            return session.get(ProdutosDTO.class, id);
         }
     }
 
     // Método para atualizar um produto no banco de dados
-    public Produto updateProduto(Integer id, Produto produto) {
+    public ProdutosDTO updateProduto(Integer id, ProdutosDTO produto) {
         // Abre uma nova sessão com o banco de dados
         try (Session session = configuration.openSession()) {
             // Inicia a transação
             session.beginTransaction();
             // Busca o produto existente pelo ID
-            Produto produtoExistente = session.get(Produto.class, id);
+            ProdutosDTO produtoExistente = session.get(ProdutosDTO.class, id);
             // Se o produto existir, atualiza seus dados
             if (produtoExistente != null) {
                 produtoExistente.setNome(produto.getNome());
@@ -90,13 +91,13 @@ public class ProdutosDAO {
     }
 
     // Método para listar todos os produtos cadastrados
-    public List<Produto> listAllProdutos() {
+    public List<ProdutosDTO> listAllProdutos() {
         // Abre uma nova sessão com o banco de dados
         try (Session session = configuration.openSession()) {
             // Inicia a transação
             session.beginTransaction();
             // Consulta todos os produtos no banco de dados
-            List<Produto> produtos = session.createQuery("FROM Produto", Produto.class).getResultList();
+            List<ProdutosDTO> produtos = session.createQuery("FROM ProdutosDTO", ProdutosDTO.class).getResultList();
             // Comita a transação
             session.getTransaction().commit();
             return produtos;
@@ -104,13 +105,13 @@ public class ProdutosDAO {
     }
 
     // Método para buscar produtos pelo nome (parcial)
-    public List<Produto> searchProdutoByName(String nome) {
+    public List<ProdutosDTO> searchProdutoByName(String nome) {
         // Abre uma nova sessão com o banco de dados
         try (Session session = configuration.openSession()) {
             // Inicia a transação
             session.beginTransaction();
             // Consulta produtos cujo nome contenha o termo fornecido
-            List<Produto> produtos = session.createQuery("FROM Produto WHERE nome LIKE :nome", Produto.class)
+            List<ProdutosDTO> produtos = session.createQuery("FROM ProdutosDTO WHERE nome LIKE :nome", ProdutosDTO.class)
                     .setParameter("nome", "%" + nome + "%")
                     .getResultList();
             // Comita a transação

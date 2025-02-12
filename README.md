@@ -1,10 +1,58 @@
----
-
 # Gerenciador de Produtos
 
 O **Gerenciador de Produtos** é uma aplicação desenvolvida em Java, utilizando Hibernate para interação com o banco de dados, que permite realizar operações básicas de CRUD (Criar, Ler, Atualizar e Deletar) em uma tabela de produtos.
 
 Este projeto foi desenvolvido para demonstrar uma implementação simples de um sistema de gerenciamento de produtos, utilizando Hibernate para persistência de dados e integração com um banco de dados MySQL.
+
+## 🧑‍💻 Equipe de Desenvolvimento
+
+### 👑 Membro 1
+![Foto do Membro 1](https://avatars.githubusercontent.com/u/105525805?v=4.jpg)
+**Michael Douglas**  
+🎓 Graduando em Licenciatura em Computação.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [MichaelDouglasCA](https://github.com/MichaelDouglasCA)
+
+### 👑 Membro 2
+![Foto do Membro 2](https://avatars.githubusercontent.com/u/93807789?v=4.jpg)
+**Klaven Castro**  
+🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [Klayverq](https://github.com/Klayverq)
+
+### 👑 Membro 3
+![Foto do Membro 3](https://avatars.githubusercontent.com/u/116564293?v=4)
+**Edson Lopes**  
+🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [3d5onLP](https://github.com/3d5onLP)
+
+  ## Modelo MVC
+
+O projeto segue o padrão **MVC (Model-View-Controller)** para melhor organização do código:
+
+## Estrutura do Projeto
+
+O projeto segue o padrão MVC (Model-View-Controller), organizado da seguinte forma:
+
+```
+Gerenciador_Produtos/
+│-- src/
+│   │-- main/
+│   │   │-- java/
+│   │   │   │-- gerenciador_de_produtos/
+│   │   │   │   │-- model/                 # Contém as classes de modelo (Entidades)
+|   │   │   |   |    │-- dao/              # Contém as classes de acesso a dados e manipulação do banco de dados
+│   │   │   │   │     │-- dto/             # Contém as classes de acesso a dados comum
+│   │   │   │   │-- controller/            # Contém as classes responsáveis pela lógica do sistema
+│   │   │   │   │-- view/                  # Contém as classes responsáveis pela interface do usuário
+│   │   │   │   |-- App/Main.java          # Classe principal para executar a aplicação
+│   |   |   │-- resources/                 # Contém arquivos de configuração
+|   |   |   |   |--META-INF                # Armazenar metadados de configuração
+|   |   |   |   |  |-- persistence.xml     # Configura a conexão com o banco de dados (driver, URL, usuário e senha)
+│   │   |   │-- hibernate.cfg.xml          # Configuração do Hibernate
+│-- README.md                              # Documentação do projeto
+```
 
 ## Funcionalidades
 
@@ -35,6 +83,7 @@ Para rodar este projeto localmente, você precisará de:
 
 - **Java 8 ou superior** instalado.
 - **MySQL** instalado e configurado.
+- **XAMPP**: Para facilitar a instalação do MySQL e Apache, baixe em: [https://www.apachefriends.org/pt_br/download.html](https://www.apachefriends.org/pt_br/download.html)
 - **IDE** (como IntelliJ IDEA, VSCode, Eclipse e etc.) para compilar e executar o código.
 - Dependências do Hibernate configuradas no `pom.xml` (se utilizando Maven) ou `build.gradle` (se utilizando Gradle).
 
@@ -42,7 +91,7 @@ Para rodar este projeto localmente, você precisará de:
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/MichaelDouglasCA/Gerenciador_de_Produtos.git
+   git clone https://github.com/3d5onLP/Produtos_Erro.git
    ```
 
 2. **Configuração do Banco de Dados**:
@@ -99,4 +148,5 @@ Se você quiser contribuir para o desenvolvimento deste projeto, sinta-se à von
 
 Este projeto é licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
---- 
+---
+
