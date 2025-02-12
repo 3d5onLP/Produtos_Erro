@@ -4,16 +4,28 @@ O **Gerenciador de Produtos** é uma aplicação desenvolvida em Java, utilizand
 
 Este projeto foi desenvolvido para demonstrar uma implementação simples de um sistema de gerenciamento de produtos, utilizando Hibernate para persistência de dados e integração com um banco de dados MySQL.
 
-## Contribuidores
+## 🧑‍💻 Equipe de Desenvolvimento
 
-O projeto foi desenvolvido por:
+### 👑 Membro 1
+![Foto do Membro 1](https://avatars.githubusercontent.com/u/105525805?v=4.jpg)
+**Michael Douglas**  
+🎓 Graduando em Licenciatura em Computação.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [MichaelDouglasCA](https://github.com/MichaelDouglasCA)
 
-- [Edson Lopes](https://github.com/3d5onLP)
-  ![Edson Lopes](https://github.com/3d5onLP.png)
-- [Klaven Castro](https://github.com/Klayverq)
-  ![Klaven Castro](https://github.com/Klayverq.png)
-- [Michael Douglas](https://github.com/MichaelDouglasCA)
-  ![Michael Douglas](https://github.com/MichaelDouglasCA.png)
+### 👑 Membro 2
+![Foto do Membro 2](https://avatars.githubusercontent.com/u/93807789?v=4.jpg)
+**Klaven Castro**  
+🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [Klayverq](https://github.com/Klayverq)
+
+### 👑 Membro 3
+![Foto do Membro 3](https://avatars.githubusercontent.com/u/116564293?v=4)
+**Klaven Castro**  
+🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [3d5onLP](https://github.com/3d5onLP)
 
   ## Modelo MVC
 
