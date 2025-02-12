@@ -256,6 +256,7 @@ public class ProdutosControl {
     }
 
     private class SearchResultDialog extends JDialog {
+        //Mostra a busca feita
         public SearchResultDialog(List<ProdutosDTO> produtos) {
             setTitle("Resultados da Busca");
             setSize(400, 300);
@@ -269,9 +270,9 @@ public class ProdutosControl {
                 model.addRow(new Object[] { produto.getId(), produto.getNome(), produto.getPreco(),
                         produto.getQuantidade() });
             }
-
+        // faz com que a pagina seja scrollavel
             add(new JScrollPane(resultTable), BorderLayout.CENTER);
-
+        // config button fechar
             JButton closeButton = new JButton("Fechar");
             closeButton.addActionListener(e -> dispose());
             add(closeButton, BorderLayout.SOUTH);

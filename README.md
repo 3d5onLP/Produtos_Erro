@@ -14,18 +14,25 @@ Este projeto foi desenvolvido para demonstrar uma implementação simples de um 
 - GitHub: [MichaelDouglasCA](https://github.com/MichaelDouglasCA)
 
 ### 👑 Membro 2
-![Foto do Membro 2](https://avatars.githubusercontent.com/u/93807789?v=4.jpg)
+![Foto do Membro 2](https://avatars.githubusercontent.com/u/116564293?v=4)
+**Edson Lopes**  
+🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
+🛠️ Função: Desenvolvedor Front-Back-end.  
+- GitHub: [3d5onLP](https://github.com/3d5onLP)
+- 
+### 👑 Membro 3
+![Foto do Membro 3](https://avatars.githubusercontent.com/u/93807789?v=4.jpg)
 **Klaven Castro**  
 🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
 🛠️ Função: Desenvolvedor Front-Back-end.  
 - GitHub: [Klayverq](https://github.com/Klayverq)
 
-### 👑 Membro 3
-![Foto do Membro 3](https://avatars.githubusercontent.com/u/116564293?v=4)
-**Edson Lopes**  
+### 👑 Membro 4
+![Foto do Membro 4](https://avatars.githubusercontent.com/u/130615855?v=4)
+**Igor Gabriel**  
 🎓 Graduando em Análise e Desenvolvimento de Sistemas.  
 🛠️ Função: Desenvolvedor Front-Back-end.  
-- GitHub: [3d5onLP](https://github.com/3d5onLP)
+- GitHub: [IgorGabrod](https://github.com/IgorGabrod)
 
   ## Modelo MVC
 
